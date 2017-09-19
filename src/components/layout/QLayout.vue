@@ -1,12 +1,12 @@
 <template>
   <div class="layout">
     <div
-      v-if="!$q.platform.is.ios && $slots.left && !leftState.openedSmall && !leftOnLayout"
+      v-if="$slots.left && !leftState.openedSmall && !leftOnLayout"
       class="layout-side-opener fixed-left"
       v-touch-pan.horizontal="__openLeftByTouch"
     ></div>
     <div
-      v-if="!$q.platform.is.ios && $slots.right && !rightState.openedSmall && !rightOnLayout"
+      v-if="$slots.right && !rightState.openedSmall && !rightOnLayout"
       class="layout-side-opener fixed-right"
       v-touch-pan.horizontal="__openRightByTouch"
     ></div>
