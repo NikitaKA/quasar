@@ -8,12 +8,6 @@ Quasar Framework is an MIT licensed open source project and completely free to u
 
 You can join them in supporting Quasar development by [pledging on Patreon](https://www.patreon.com/quasarframework)! Backers in the same pledge level appear in the order of pledge date.
 
-### $2000
-
-Currently vacant. It could be you or your organization!
-
----
-
 ### $500
 
 It could be you!
@@ -22,13 +16,15 @@ It could be you!
 
 ### $250
 
-- Mike Burgh
+It could be you!
 
 ---
 
 ### $100+
 
-- <a href="http://picktype.com" target="_blank"><img src="https://picktype.com/wp-content/uploads/2017/04/pt-trans-full-256.png"></a>
+<a href="http://comcomservices.com/" target="_blank"><img src="http://comcomservices.com/wp-content/uploads/2016/03/Final-ComComLogo.png" width="200px"></a>
+
+<a href="http://picktype.com" target="_blank"><img src="https://picktype.com/wp-content/uploads/2017/04/pt-trans-full-256.png" width="200px"></a>
 
 ---
 
@@ -36,17 +32,20 @@ It could be you!
 
 - Colin Mollenhour
 - ShipStream.io
-- Fabio Migliorini
-- Max Matteo Staack
+- MG Papelaria (company)
 - Moacir Schmidt
 
 ---
 
 ### $10+
 
+- Max Matteo Staack ($35)
 - Valerian Cure ($25)
 - Shawn Makinson ($25)
 - Anca-Anamaria Enache ($20)
+- MSG Group ($20)
+- Jonas Viczian ($15)
+- Laurent Aapro ($12)
 - Marek Urbanowicz
 - Samuel Lin
 - Matsumoto Takamasa
@@ -54,9 +53,7 @@ It could be you!
 - Josh Bodine
 - William Marques Vicente Gomes Correa
 - Samuel Desconsi
-- Jonas Viczian ($15)
 - John (JCharante)
-- MSG Group ($20)
 - Florent Peyrard
 - Jacob Heruty
 - Scott Ward
@@ -64,10 +61,13 @@ It could be you!
 - Simon Hedberg
 - Saloustros Marios
 - Guilherme S L de Souza
+- Jim O'Quinn
+- Bert Jehoul
 
 - Ken ($5)
 - Oliver ($5)
 - Mahesh Narayanamurthi ($5)
+- Rodolfo Torres Jaime ($5)
 - Rogério Queiroz ($3)
 - Joe L Wroten ($1)
 - Yasuhiro Kawagoe ($1)

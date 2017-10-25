@@ -39,8 +39,10 @@
           :name="name"
           :placeholder="inputPlaceholder"
           :disabled="disable"
+          :readonly="readonly"
           :maxlength="maxLength"
           :rows="minRows"
+          v-bind="attributes"
 
           :value="value"
           @input="__set"
@@ -63,7 +65,9 @@
       :placeholder="inputPlaceholder"
       :pattern="pattern"
       :disabled="disable"
+      :readonly="readonly"
       :maxlength="maxLength"
+      v-bind="attributes"
 
       :min="min"
       :max="max"
@@ -88,7 +92,7 @@
     ></q-icon>
 
     <q-icon
-      v-if="clearable && length"
+      v-if="editable && clearable && length"
       slot="after"
       name="cancel"
       class="q-if-control"
@@ -135,6 +139,8 @@ export default {
     minRows: Number,
     clearable: Boolean,
     noPassToggle: Boolean,
+    readonly: Boolean,
+    attributes: Object,
 
     min: Number,
     max: Number,
@@ -206,6 +212,9 @@ export default {
       return this.value || (this.isNumber && this.value !== null)
         ? ('' + this.value).length
         : 0
+    },
+    editable () {
+      return !this.disable && !this.readonly
     }
   },
   methods: {
@@ -213,7 +222,7 @@ export default {
       this.showPass = !this.showPass
     },
     clear () {
-      if (!this.disable) {
+      if (this.editable) {
         this.$emit('input', '')
         this.$emit('change', '')
       }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="layout-padding input-example" style="max-width: 600px;">
-      <q-input ref="xi" @change="onChange" v-model="text" />
+      <q-input ref="xi" :attributes="{gigi: 'yes'}" @change="onChange" v-model="text" />
       <q-btn @click="$refs.xi.select()">Select</q-btn>
       <q-input v-model="text" stack-label="Stack Label" />
       <q-input v-model="text" float-label="Float Label" placeholder="Gigi" />
@@ -13,6 +13,9 @@
 
       <q-input disable v-model="text" float-label="Float Label" placeholder="Gigi" />
       <q-input inverted disable v-model="text" float-label="Float Label" placeholder="Gigi" clearable />
+
+      <q-input readonly v-model="text" float-label="Float Label" placeholder="Gigi" />
+      <q-input inverted readonly v-model="text" float-label="Float Label" placeholder="Gigi" clearable />
 
       <q-input v-model="text" float-label="Colored" color="amber" />
       <q-input v-model="text" float-label="Colored" color="amber" error />

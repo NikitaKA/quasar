@@ -3,8 +3,10 @@ import QItemMain from './QItemMain'
 import QItemSide from './QItemSide'
 
 function push (child, h, name, slot, replace, conf) {
+  const defaultProps = { props: { right: conf.right } }
+
   if (slot && replace) {
-    child.push(h(name, slot))
+    child.push(h(name, defaultProps, slot))
     return
   }
   let props, v = false
@@ -20,7 +22,7 @@ function push (child, h, name, slot, replace, conf) {
     }
   }
   if (props || slot) {
-    child.push(h(name, props ? {props: conf} : {}, slot))
+    child.push(h(name, props ? {props: conf} : defaultProps, slot))
   }
 }
 
@@ -30,9 +32,7 @@ export default {
   props: {
     cfg: {
       type: Object,
-      default () {
-        return {}
-      }
+      default: () => ({})
     },
     slotReplace: Boolean
   },
@@ -45,6 +45,7 @@ export default {
 
     push(child, h, QItemSide, slot.left, replace, {
       icon: cfg.icon,
+      color: cfg.leftColor,
       avatar: cfg.avatar,
       letter: cfg.letter,
       image: cfg.image
@@ -61,6 +62,7 @@ export default {
     push(child, h, QItemSide, slot.right, replace, {
       right: true,
       icon: cfg.rightIcon,
+      color: cfg.rightColor,
       avatar: cfg.rightAvatar,
       letter: cfg.rightLetter,
       image: cfg.rightImage,

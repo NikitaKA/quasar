@@ -38,6 +38,9 @@
           v-model="el.model"
           :color="el.color"
           :options="el.items"
+          :inline="el.inline"
+          :dark="el.dark"
+          :keep-color="el.keepColor"
         ></q-option-group>
 
         <div v-if="el.type === 'slider' || el.type === 'range'" style="margin-top: 15px; margin-bottom: 10px">
@@ -150,17 +153,18 @@ export default {
   },
   methods: {
     trigger (handler, preventClose) {
-      const handlerFn = typeof handler === 'function'
-      if (!handlerFn) {
+      if (typeof handler !== 'function') {
         this.close()
         return
       }
 
+      const data = this.getFormData()
+
       if (preventClose) {
-        handler(this.getFormData(), this.close)
+        handler(data, this.close)
       }
       else {
-        this.close(() => { handler(this.getFormData()) })
+        this.close(() => { handler(data) })
       }
     },
     getFormData () {
@@ -185,7 +189,7 @@ export default {
       }
       this.$refs.dialog.close(() => {
         if (typeof fn === 'function') {
-          fn()
+          fn(this.getFormData())
         }
       })
     },
@@ -195,7 +199,7 @@ export default {
     __dismiss () {
       this.$root.$destroy()
       if (typeof this.onDismiss === 'function') {
-        this.onDismiss()
+        this.onDismiss(this.getFormData())
       }
     }
   },

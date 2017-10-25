@@ -26,6 +26,7 @@
     @blur="__onBlur"
     @keyup="__onKeyup"
     @keydown="__onKeydown"
+    @click="__onClick"
   >
     <slot></slot>
   </q-input>
@@ -75,7 +76,7 @@ export default {
   },
   provide () {
     return {
-      __inputParent: {
+      __inputDebounce: {
         set: val => {
           if (this.value !== val) {
             this.$emit('input', val)
@@ -115,10 +116,10 @@ export default {
         : this.debounce
     },
     controlBefore () {
-      return [{icon: this.icon, handler: this.focus}]
+      return this.before || [{icon: this.icon, handler: this.focus}]
     },
     controlAfter () {
-      return [{
+      return this.after || [{
         icon: this.inverted ? 'clear' : 'cancel',
         content: true,
         handler: this.clearAndFocus

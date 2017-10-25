@@ -23,7 +23,7 @@
   &-3-lines
     -webkit-line-clamp 3
 
-.readonly, [readonly], .disabled, [disabled]
+.disabled, [disabled]
   &, * // @stylint ignore
     cursor not-allowed !important
 .disabled, [disabled]
@@ -57,8 +57,8 @@ body
   &.dimmed, &.light-dimmed
     &:after
       z-index $z-body-dimmed !important
-.z-absolute
-  z-index $z-absolute !important
+.z-max
+  z-index $z-max !important
 
 for type in desktop mobile cordova electron ios mat touch within-iframe platform-ios platform-android
   body:not(.{type}) .{type}-only,
@@ -71,6 +71,13 @@ for type in desktop mobile cordova electron ios mat touch within-iframe platform
 
 @media all and (orientation landscape)
   .orientation-portrait
+    display none !important
+
+@media screen
+  .print-only
+    display none !important
+@media print
+  .print-hide
     display none !important
 
 @media (max-width $breakpoint-xs-max)

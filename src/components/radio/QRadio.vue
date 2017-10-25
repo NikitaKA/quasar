@@ -8,7 +8,7 @@
     @blur="$emit('blur')"
     @keydown.space.enter.prevent="select(false)"
   >
-    <div class="q-option-inner relative-position" :class="classes">
+    <div class="q-option-inner relative-position" :class="innerClasses">
       <input
         type="radio"
         v-model="model"
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { current as theme } from '../../features/theme'
 import OptionMixin from '../option-group/option-mixin'
 import { QIcon } from '../icon'
 
@@ -51,7 +50,7 @@ export default {
     },
     checkedIcon: {
       type: String,
-      default: theme === 'ios' ? 'check' : 'radio_button_checked'
+      default: __THEME__ === 'ios' ? 'check' : 'radio_button_checked'
     },
     uncheckedIcon: {
       type: String,

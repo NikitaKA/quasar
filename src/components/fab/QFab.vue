@@ -1,6 +1,6 @@
 <template>
   <div
-    class="q-fab row inline justify-center"
+    class="q-fab z-fab row inline justify-center"
     :class="{'q-fab-opened': opened}"
   >
     <q-btn
@@ -12,6 +12,7 @@
       :color="color"
       :class="{glossy: glossy}"
     >
+      <slot name="tooltip"></slot>
       <q-icon :name="icon" class="q-fab-icon absolute-full row flex-center full-width full-height"></q-icon>
       <q-icon :name="activeIcon" class="q-fab-active-icon absolute-full row flex-center full-width full-height"></q-icon>
     </q-btn>

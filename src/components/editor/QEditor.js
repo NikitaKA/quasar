@@ -179,6 +179,9 @@ export default {
     },
     focus () {
       this.$refs.content.focus()
+    },
+    getContentEl () {
+      return this.$refs.content
     }
   },
   created () {
@@ -208,7 +211,7 @@ export default {
               disabled: this.disable,
               fullscreen: this.inFullscreen,
               column: this.inFullscreen,
-              'z-absolute': this.inFullscreen
+              'z-max': this.inFullscreen
             }
           },
           [

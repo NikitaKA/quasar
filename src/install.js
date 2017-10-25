@@ -1,8 +1,24 @@
 import Platform from './features/platform'
 import { installEvents } from './features/events'
-import { current as theme } from './features/theme'
 import { version } from '../package.json'
 import { setVue } from './deps'
+import { ready } from './utils/dom'
+import './polyfills'
+
+function addBodyClasses () {
+  const cls = [
+    __THEME__,
+    Platform.is.desktop ? 'desktop' : 'mobile',
+    Platform.has.touch ? 'touch' : 'no-touch',
+    `platform-${Platform.is.ios ? 'ios' : 'mat'}`
+  ]
+
+  Platform.within.iframe && cls.push('within-iframe')
+  Platform.is.cordova && cls.push('cordova')
+  Platform.is.electron && cls.push('electron')
+
+  document.body.classList.add.apply(document.body.classList, cls)
+}
 
 export default function (_Vue, opts = {}) {
   if (this.installed) {
@@ -11,6 +27,7 @@ export default function (_Vue, opts = {}) {
   this.installed = true
 
   setVue(_Vue)
+  ready(addBodyClasses)
 
   if (opts.directives) {
     Object.keys(opts.directives).forEach(key => {
@@ -34,7 +51,7 @@ export default function (_Vue, opts = {}) {
   _Vue.prototype.$q = {
     version,
     platform: Platform,
-    theme,
+    theme: __THEME__,
     events
   }
 }

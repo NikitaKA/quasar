@@ -11,6 +11,10 @@
         :color="opt.color || color"
         :checked-icon="opt.checkedIcon"
         :unchecked-icon="opt.uncheckedIcon"
+        :indeterminate-icon="opt.indeterminateIcon"
+        :indeterminate="indeterminate"
+        :dark="opt.dark || dark"
+        :keep-color="opt.keepColor || keepColor"
         @focus="__onFocus"
         @blur="__onBlur"
         @change="__onChange"
@@ -42,6 +46,9 @@ export default {
       }
     },
     color: String,
+    keepColor: Boolean,
+    dark: Boolean,
+    indeterminate: Boolean,
     options: {
       type: Array,
       validator (opts) {
@@ -52,7 +59,9 @@ export default {
     inline: Boolean,
     disable: Boolean
   },
-  inject: ['__field'],
+  inject: {
+    __field: { default: null }
+  },
   computed: {
     component () {
       return `q-${this.type}`
